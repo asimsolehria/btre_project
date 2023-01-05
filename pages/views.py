@@ -13,8 +13,10 @@ def index(request):
 
 
 def about(request):
+    realtors=Realtor.objects.all()
     realtorsAreMVP=Realtor.objects.filter(is_mvp=True)
     context={
-        'realtorsAreMVP':realtorsAreMVP
+        'realtorsAreMVP':realtorsAreMVP,
+        'realtors':realtors
     }
     return render(request,'pages/about.html',context)
