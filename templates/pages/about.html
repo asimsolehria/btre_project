@@ -41,19 +41,21 @@
                     at quaerat
                     commodi id libero eveniet harum perferendis laborum molestias quia.</p>
             </div>
+            {% if realtorsAreMVP %}
+            {% for mvps in realtorsAreMVP %}
             <div class="col-md-4">
                 <div class="card">
-                    <img class="card-img-top" src="{% static '/img/realtors/kyle.jpg'%}" alt="Seller of the month">
+                    <img class="card-img-top" src="{{ mvps.photo.url }}" alt="Seller of the month">
                     <div class="card-body">
                         <h5 class="card-title">Seller Of The Month</h5>
-                        <h6 class="text-secondary">Kyle Brown</h6>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis nesciunt
-                            amet, illo itaque similique repellat.
-                            content.
+                        <h6 class="text-secondary">{{ mvps.name }}</h6>
+                        <p class="card-text">{{ mvps.description }}
                         </p>
                     </div>
                 </div>
             </div>
+            {% endfor %}
+            {% endif %}
         </div>
     </div>
 </section>
@@ -63,7 +65,7 @@
     <h2 class="display-4">We Work For You</h2>
     <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem velit aperiam, unde aliquid at similique!</h4>
     <hr>
-    <a href="listings.html" class="btn btn-secondary text-white btn-lg">View Our Featured Listings</a>
+    <a href="{% url 'listings' %}" class="btn btn-secondary text-white btn-lg">View Our Featured Listings</a>
 </section>
 
 <!-- Team -->
